@@ -18,7 +18,7 @@ class CreateCandidatosTable extends Migration
             $table->string('nome_completo');
             $table->string('nome_exibicao');
             $table->string('foto');
-            $table->string('partido');
+            $table->unsignedInteger('id_partido');
             $table->string('numero_candidato');
             $table->string('endereco');
             $table->timestamps();

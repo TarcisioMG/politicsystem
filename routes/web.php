@@ -18,4 +18,7 @@ Route::get('/', function () {
 Route::resource('partidos','PartidoController');
 Auth::routes();
 
+Route::resource('candidatos','CandidatoController');
+
+
 Route::get('/home', 'HomeController@index')->name('home');

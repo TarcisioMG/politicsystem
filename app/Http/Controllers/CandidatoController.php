@@ -13,7 +13,7 @@ class CandidatoController extends Controller
      */
     public function index()
     {
-        $candidatos=\App\Partido::all();
+        $candidatos=\App\Candidato::all();
         return view('index_candidato',compact('candidatos'));
     }
 
@@ -36,17 +36,17 @@ class CandidatoController extends Controller
     public function store(Request $request)
     {
         if($request->hasfile('foto'))
-         {
+        {
             $file = $request->file('foto');
             $name=time().$file->getClientOriginalName();
             $file->move(public_path().'/images/', $name);
-         }
+        }
         $candidato= new \App\Candidato;
-        $candidato->nome=$request->get('nome_completo');
-        $candidato->nome=$request->get('nome_exibicao');
-        $candidato->sigla=$request->get('foto');
-        $candidato->numero_candidato=$request->get('candidato');
-        $candidato->nome=$request->get('numero_candidato');
+        $candidato->nome_completo=$request->get('nome_completo');
+        $candidato->nome_exibicao=$request->get('nome_exibicao');
+        $candidato->foto=$name;
+        $candidato->id_partido=$request->get('id_partido');
+        $candidato->numero_candidato=$request->get('numero_candidato');
         $candidato->endereco=$request->get('endereco');
         $candidato->save();
         
@@ -84,10 +84,18 @@ class CandidatoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
+    {   
+        if($request->hasfile('foto'))
+        {
+            $file = $request->file('foto');
+            $name=time().$file->getClientOriginalName();
+            $file->move(public_path().'/images/', $name);
+        }
         $candidato= \App\Candidato::find($id);
-        $candidato->nome=$request->get('nome');
-        $candidato->sigla=$request->get('sigla');
+        $candidato->nome_completo=$request->get('nome_completo');
+        $candidato->nome_exibicao=$request->get('nome_exibicao');
+        $candidato->foto=$name;
+        $candidato->id_partido=$request->get('id_partido');
         $candidato->numero_candidato=$request->get('numero_candidato');
         $candidato->endereco=$request->get('endereco');
         $candidato->save();

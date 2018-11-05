@@ -10,6 +10,7 @@
     <br />
     <a class="btn btn-primary" href="{{action('PartidoController@create')}}">Adicionar Partido</a>
     <a class="btn btn-primary" href="{{action('CandidatoController@create')}}">Adicionar candidato</a>
+    <a class="btn btn-primary" href="{{action('CandidatoController@index')}}">Ver Candidatos</a>
     @if (\Session::has('success'))
       <div class="alert alert-success">
         <p>{{ \Session::get('success') }}</p>
@@ -29,7 +30,7 @@
     <tbody>
       
       @foreach($partidos as $partido)
-      @php
+
       <tr>
         <td>{{$partido['id']}}</td>
         <td>{{$partido['nome']}}</td>
