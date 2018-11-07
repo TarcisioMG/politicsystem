@@ -16,9 +16,13 @@ Route::get('/', function () {
 });
 
 Route::resource('partidos','PartidoController');
+
 Auth::routes();
 
 Route::resource('candidatos','CandidatoController');
 
+Route::get('candidato/votar', 'CandidatoController@view_votar');
+
+Route::post('/votar', 'CandidatoController@votar');
 
 Route::get('/home', 'HomeController@index')->name('home');

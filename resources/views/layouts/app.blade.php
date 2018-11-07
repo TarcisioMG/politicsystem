@@ -22,13 +22,15 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    HOME
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
@@ -68,12 +70,17 @@
                             </li>
                         @endguest
                     </ul>
+                    <a class="nav-item" href="{{action('CandidatoController@view_votar')}}">Votar</a>
+                    <a class="nav-item" href="{{action('CandidatoController@create')}}">Adicionar candidato</a>
+                    <a class="nav-item" href="{{action('PartidoController@create')}}">Adicionar Partido</a>
+                    <a class="nav-item" href="{{action('CandidatoController@index')}}">Ver Candidatoos</a>
+                    <a class="nav-item" href="{{action('PartidoController@index')}}">Ver Partidos</a>
                 </div>
             </div>
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            @yield('content');
         </main>
     </div>
 </body>

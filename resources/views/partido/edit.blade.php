@@ -1,20 +1,15 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Laravel 5.6 CRUD Tutorial With Example </title>
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
-  </head>
-  <body>
+@extends('layouts.app')
+
+@section('content')
     <div class="container">
-      <h2>Edit A Form</h2><br  />
+      <h2>Editar partido</h2><br  />
         <form method="post" action="{{action('PartidoController@update', $id)}}">
         @csrf
         <input name="_method" type="hidden" value="PATCH">
         <div class="row">
           <div class="col-md-4"></div>
           <div class="form-group col-md-4">
-            <label for="name">Name:</label>
+            <label for="name">Nome:</label>
             <input type="text" class="form-control" name="nome" value="{{$partido->nome}}">
           </div>
         </div>
@@ -48,5 +43,4 @@
         </div>
       </form>
     </div>
-  </body>
-</html>
+@endsection

@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Editar Candidato </title>
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
-  </head>
-  <body>
+@extends('layouts.app')
+
+@section('content')
     <div class="container">
       <h2>Editar Candidato</h2><br  />
         <form method="post" action="{{action('CandidatoController@update', $id)}}" enctype="multipart/form-data">
@@ -60,5 +55,4 @@
         </div>
       </form>
     </div>
-  </body>
-</html>
+@endsection

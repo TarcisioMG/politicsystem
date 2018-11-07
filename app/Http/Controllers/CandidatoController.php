@@ -14,8 +14,24 @@ class CandidatoController extends Controller
     public function index()
     {
         $candidatos=\App\Candidato::all();
-        return view('index_candidato',compact('candidatos'));
+        return view('candidato/index',compact('candidatos'));
     }
+
+    public function view_votar ()
+    {
+        return view('votar');
+    }
+
+    public function votar(Request $request)
+    {
+        // $candidato= \App\Candidato::find($request->post('numero_candidato'));
+        // $candidato->votos=1;
+        // $candidato->save();
+        $votar = $request->get('numero_candidato');
+        return redirect('candidatos')->with('success', 'Cadastrado com sucesso!');
+
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -24,7 +40,7 @@ class CandidatoController extends Controller
      */
     public function create()
     {
-        return view('create_candidato');
+        return view('candidato/create');
     }
 
     /**
@@ -44,7 +60,9 @@ class CandidatoController extends Controller
         $candidato= new \App\Candidato;
         $candidato->nome_completo=$request->get('nome_completo');
         $candidato->nome_exibicao=$request->get('nome_exibicao');
-        $candidato->foto=$name;
+        if(isset($name)){
+            $candidato->foto=$name;
+        }
         $candidato->id_partido=$request->get('id_partido');
         $candidato->numero_candidato=$request->get('numero_candidato');
         $candidato->endereco=$request->get('endereco');
@@ -73,7 +91,7 @@ class CandidatoController extends Controller
     public function edit($id)
     {
         $candidato = \App\Candidato::find($id);
-        return view('edit_candidato',compact('candidato','id'));
+        return view('candidato/edit',compact('candidato','id'));
     }
 
     /**
@@ -94,7 +112,9 @@ class CandidatoController extends Controller
         $candidato= \App\Candidato::find($id);
         $candidato->nome_completo=$request->get('nome_completo');
         $candidato->nome_exibicao=$request->get('nome_exibicao');
-        $candidato->foto=$name;
+        if(isset($name)){
+            $candidato->foto=$name;
+        }
         $candidato->id_partido=$request->get('id_partido');
         $candidato->numero_candidato=$request->get('numero_candidato');
         $candidato->endereco=$request->get('endereco');

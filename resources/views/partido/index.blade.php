@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Partidos</title>
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
-  </head>
-  <body>
+@extends('layouts.app')
+
+@section('content')
     <div class="container">
     <br />
     <a class="btn btn-primary" href="{{action('PartidoController@create')}}">Adicionar Partido</a>
@@ -51,5 +46,4 @@
     </tbody>
   </table>
   </div>
-  </body>
-</html>
+@endsection

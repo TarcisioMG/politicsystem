@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Candidatos</title>
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
-  </head>
-  <body>
+@extends('layouts.app')
+
+@section('content')
     <div class="container">
     <br />
-    <a class="btn btn-primary" href="{{action('CandidatoController@create')}}">Adicionar candidato</a>
-    <a class="btn btn-primary" href="{{action('PartidoController@create')}}">Adicionar Partido</a>
-    <a class="btn btn-primary" href="{{action('PartidoController@index')}}">Ver Partidos</a>
+    
     @if (\Session::has('success'))
       <div class="alert alert-success">
         <p>{{ \Session::get('success') }}</p>
@@ -54,6 +47,6 @@
       @endforeach
     </tbody>
   </table>
+  <a class="btn btn-success" href="{{action('CandidatoController@index')}}">Votar</a>
   </div>
-  </body>
-</html>
+@endsection

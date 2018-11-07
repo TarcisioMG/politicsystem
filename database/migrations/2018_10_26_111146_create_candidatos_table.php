@@ -21,6 +21,7 @@ class CreateCandidatosTable extends Migration
             $table->unsignedInteger('id_partido');
             $table->string('numero_candidato');
             $table->string('endereco');
+            $table->integer('votos')->default('0');
             $table->timestamps();
         });
     }

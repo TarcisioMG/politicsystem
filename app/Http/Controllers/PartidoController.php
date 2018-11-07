@@ -14,7 +14,7 @@ class PartidoController extends Controller
     public function index()
     {
         $partidos=\App\Partido::all();
-        return view('index_partido',compact('partidos'));
+        return view('partido/index',compact('partidos'));
     }
 
     /**
@@ -24,7 +24,7 @@ class PartidoController extends Controller
      */
     public function create()
     {
-        return view('create_partido');
+        return view('partido/create');
     }
 
     /**
@@ -65,7 +65,7 @@ class PartidoController extends Controller
     public function edit($id)
     {
         $partido = \App\Partido::find($id);
-        return view('edit_partido',compact('partido','id'));
+        return view('partido/edit',compact('partido','id'));
     }
 
     /**
