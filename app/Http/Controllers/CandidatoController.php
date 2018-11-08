@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class CandidatoController extends Controller
 {
@@ -23,12 +24,14 @@ class CandidatoController extends Controller
     }
 
     public function votar(Request $request)
-    {
-        // $candidato= \App\Candidato::find($request->post('numero_candidato'));
-        // $candidato->votos=1;
-        // $candidato->save();
-        $votar = $request->get('numero_candidato');
-        return redirect('candidatos')->with('success', 'Cadastrado com sucesso!');
+    {   
+        $numero_candidato = $request->get('numero_candidato');
+        $user = DB::table('candidatos')->where('numero_candidato', $numero_candidato)->first();
+        $id = $user->id;
+        $candidato = \App\Candidato::find($id);
+        $candidato->votos = $candidato->votos + 1;
+        $candidato->save();
+        return redirect('candidatos')->with('success', 'Voto computado com sucesso!');
 
     }
 

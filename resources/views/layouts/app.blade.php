@@ -18,6 +18,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <style>
+        th, td{
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -25,7 +31,7 @@
 
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    HOME
+                    Home Laravel
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -41,6 +47,20 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{action('CandidatoController@view_votar')}}">Votar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{action('PartidoController@create')}}">Adicionar Partido</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{action('PartidoController@index')}}">Ver Partidos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{action('CandidatoController@create')}}">Adicionar candidato</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{action('CandidatoController@index')}}">Ver Candidatos</a>
+                        </li>
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -70,11 +90,6 @@
                             </li>
                         @endguest
                     </ul>
-                    <a class="nav-item" href="{{action('CandidatoController@view_votar')}}">Votar</a>
-                    <a class="nav-item" href="{{action('CandidatoController@create')}}">Adicionar candidato</a>
-                    <a class="nav-item" href="{{action('PartidoController@create')}}">Adicionar Partido</a>
-                    <a class="nav-item" href="{{action('CandidatoController@index')}}">Ver Candidatoos</a>
-                    <a class="nav-item" href="{{action('PartidoController@index')}}">Ver Partidos</a>
                 </div>
             </div>
         </nav>

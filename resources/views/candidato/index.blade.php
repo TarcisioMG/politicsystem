@@ -19,6 +19,7 @@
         <th>Partido ID</th>
         <th>Número</th>
         <th>Endereço</th>
+        <th>Votos</th>
         <th colspan="2">Action</th>
       </tr>
     </thead>
@@ -34,6 +35,7 @@
         <td>{{$candidato['id_partido']}}</td>
         <td>{{$candidato['numero_candidato']}}</td>
         <td>{{$candidato['endereco']}}</td>
+        <td>{{$candidato['votos']}}</td>
         
         <td><a href="{{action('CandidatoController@edit', $candidato['id'])}}" class="btn btn-warning">Edit</a></td>
         <td>
