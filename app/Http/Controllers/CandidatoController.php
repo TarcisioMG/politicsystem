@@ -25,16 +25,21 @@ class CandidatoController extends Controller
 
     public function votar(Request $request)
     {   
+
         $numero_candidato = $request->get('numero_candidato');
         $user = DB::table('candidatos')->where('numero_candidato', $numero_candidato)->first();
         $id = $user->id;
         $candidato = \App\Candidato::find($id);
-        $candidato->votos = $candidato->votos + 1;
-        $candidato->save();
-        return redirect('candidatos')->with('success', 'Voto computado com sucesso!');
+        return view('candidato/confirmar',compact('candidato', 'id'));
+        // $candidato->votos = $candidato->votos + 1;
+        // $candidato->save();
+        // return redirect('candidatos')->with('success', 'Voto computado com sucesso!');
 
     }
 
+    public function confirmar($id){
+
+    }
 
     /**
      * Show the form for creating a new resource.

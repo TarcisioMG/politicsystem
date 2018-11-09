@@ -10,7 +10,7 @@
           <div class="form-group col-md-4">
             <label for="numero_candidato">Numero do Candidato:</label>
             <input type="text" class="form-control" name="numero_candidato">
-            <input type="submit" value="Confirmar">
+            <input type="submit" value="Votar">
           </div>
         </div>
       </form>

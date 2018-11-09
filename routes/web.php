@@ -21,7 +21,11 @@ Auth::routes();
 
 Route::resource('candidatos','CandidatoController');
 
-Route::get('candidato/votar', 'CandidatoController@view_votar');
+Route::get('votacao', 'CandidatoController@view_votar');
+
+Route::get('confirmar', 'CandidatoController@confirmar');
+
+Route::post('candidato', 'CandidatoController@view_candidato');
 
 Route::post('/votar', 'CandidatoController@votar');
 
