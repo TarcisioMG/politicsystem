@@ -23,7 +23,7 @@ Route::resource('candidatos','CandidatoController');
 
 Route::get('votacao', 'CandidatoController@view_votar');
 
-Route::get('confirmar', 'CandidatoController@confirmar');
+Route::get('confirmar/{id}', 'CandidatoController@confirmar');
 
 Route::post('candidato', 'CandidatoController@view_candidato');
 

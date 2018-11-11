@@ -31,18 +31,18 @@
         <td>{{$candidato['id']}}</td>
         <td>{{$candidato['nome_completo']}}</td>
         <td>{{$candidato['nome_exibicao']}}</td>
-        <td><img src="/images/{{$candidato['foto']}}" style="width: 75px; height: 50px;"></td>
+        <td><img src="{{$candidato['foto']}}" style="width: 75px; height: 50px;"></td>
         <td>{{$candidato['id_partido']}}</td>
         <td>{{$candidato['numero_candidato']}}</td>
         <td>{{$candidato['endereco']}}</td>
         <td>{{$candidato['votos']}}</td>
         
-        <td><a href="{{action('CandidatoController@edit', $candidato['id'])}}" class="btn btn-warning">Edit</a></td>
+        <td><a href="{{action('CandidatoController@edit', $candidato['id'])}}" class="btn btn-warning">Editar</a></td>
         <td>
           <form action="{{action('CandidatoController@destroy', $candidato['id'])}}" method="post">
             @csrf
             <input name="_method" type="hidden" value="DELETE">
-            <button class="btn btn-danger" type="submit">Delete</button>
+            <button class="btn btn-danger" type="submit">Deletar</button>
           </form>
         </td>
       </tr>

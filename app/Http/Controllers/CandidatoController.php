@@ -20,7 +20,7 @@ class CandidatoController extends Controller
 
     public function view_votar ()
     {
-        return view('votar');
+        return view('candidato/votar');
     }
 
     public function votar(Request $request)
@@ -38,7 +38,10 @@ class CandidatoController extends Controller
     }
 
     public function confirmar($id){
-
+        $candidato = \App\Candidato::find($id);
+        $candidato->votos = $candidato->votos + 1;
+        $candidato->save();
+        return redirect('candidatos')->with('success', 'Voto computado com sucesso!');
     }
 
     /**
@@ -62,7 +65,7 @@ class CandidatoController extends Controller
         if($request->hasfile('foto'))
         {
             $file = $request->file('foto');
-            $name=time().$file->getClientOriginalName();
+            $name="/images/".time().$file->getClientOriginalName();
             $file->move(public_path().'/images/', $name);
         }
         $candidato= new \App\Candidato;
@@ -114,7 +117,7 @@ class CandidatoController extends Controller
         if($request->hasfile('foto'))
         {
             $file = $request->file('foto');
-            $name=time().$file->getClientOriginalName();
+            $name="/images/".time().$file->getClientOriginalName();
             $file->move(public_path().'/images/', $name);
         }
         $candidato= \App\Candidato::find($id);
@@ -140,6 +143,6 @@ class CandidatoController extends Controller
     {
         $candidato = \App\Candidato::find($id);
         $candidato->delete();
-        return redirect('candidatos')->with('success','Deletado com sucesso');
+        return redirect('candidatos')->with('success','Deletado com sucesso!');
     }
 }
