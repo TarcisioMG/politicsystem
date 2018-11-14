@@ -18,7 +18,8 @@ class CreateCandidatosTable extends Migration
             $table->string('nome_completo');
             $table->string('nome_exibicao');
             $table->string('foto');
-            $table->unsignedInteger('id_partido');
+            $table->integer('id_partido')->unsigned();
+            $table->foreign('id_partido')->references('id')->on('partidos');
             $table->string('numero_candidato')->unique();
             $table->string('endereco');
             $table->integer('votos')->default('0');

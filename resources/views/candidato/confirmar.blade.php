@@ -2,6 +2,11 @@
 
 @section('content')
     <div class="container">
+        <img src="{{$candidato['foto']}}" class="rounded float-right" style="width: 300px; height: 200px;">
+    </div>
+
+
+
     <br />
     
     @if (\Session::has('success'))
@@ -22,7 +27,6 @@
     <tbody>
       
       <tr>
-        <td><img src="{{$candidato['foto']}}" style="width: 75px; height: 50px;"></td>
         <td>{{$candidato['nome_completo']}}</td>
         <td>{{$candidato['nome_exibicao']}}</td>
         <td>{{$candidato['id_partido']}}</td>
@@ -31,7 +35,7 @@
     </tbody>
   </table>
     <a href="{{action('CandidatoController@view_votar')}}" class="btn btn-danger">Corrigir</a>
-    <a href="{{action('CandidatoController@confirmar', $candidato['id'])}}" class="btn btn-success btn-lg">Confirmar</a>
+    <a href="{{action('CandidatoController@confirmar', $candidato['id'])}}" class="btn btn-success">Confirmar</a>
   </form>
 </div>
 @endsection
