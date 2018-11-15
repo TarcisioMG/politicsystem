@@ -15,18 +15,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('partidos','PartidoController');
-
 Auth::routes();
 
-Route::resource('candidatos','CandidatoController');
+Route::middleware(['auth'])->group(function () {
 
-Route::get('votacao', 'CandidatoController@view_votar');
+	Route::resource('partidos','PartidoController');
 
-Route::get('confirmar/{id}', 'CandidatoController@confirmar');
+	Route::resource('candidatos','CandidatoController');
 
-Route::post('candidato', 'CandidatoController@view_candidato');
+	Route::get('votacao', 'CandidatoController@view_votar');
 
-Route::post('/votar', 'CandidatoController@votar');
+	Route::get('confirmar/{id}', 'CandidatoController@confirmar');
+
+	Route::post('candidato', 'CandidatoController@view_candidato');
+
+	Route::post('/votar', 'CandidatoController@votar');
+
+});
 
 Route::get('/home', 'HomeController@index')->name('home');

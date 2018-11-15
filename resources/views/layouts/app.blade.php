@@ -31,7 +31,7 @@
 
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Home Laravel
+                    Home
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -47,20 +47,6 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{action('CandidatoController@view_votar')}}">Votar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{action('PartidoController@create')}}">Adicionar Partido</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{action('PartidoController@index')}}">Ver Partidos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{action('CandidatoController@create')}}">Adicionar candidato</a>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{action('CandidatoController@index')}}">Ver Candidatos</a>
-                        </li>
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -71,6 +57,20 @@
                                 @endif
                             </li>
                         @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{action('CandidatoController@view_votar')}}">Votar</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{action('PartidoController@create')}}">Adicionar Partido</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{action('PartidoController@index')}}">Ver Partidos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{action('CandidatoController@create')}}">Adicionar candidato</a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{action('CandidatoController@index')}}">Ver Candidatos</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
