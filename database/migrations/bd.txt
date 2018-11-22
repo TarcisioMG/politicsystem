@@ -1,0 +1,31 @@
+tabela elections -> id.('primária')
+										ano 
+										nome 
+
+tabela election_user -> id_user.('estrangeira')
+												id_election.('estrangeira')
+												id_cargo.('estrangeira')
+
+table candidates -> id.('primária')
+										id_election.('estrangeira')
+										id_party.('estrangeira')
+										id_cargo.('estrangeira')
+										Nome_Completo
+										Nome_de_exibição
+										foto
+										numero_candidato.('unique')
+
+table parties -> id.('primária')
+								 id_election.('estrangeira')
+								 nome
+								 sigla
+								 numero_partido
+								 endereço
+
+table cargo -> id.('primária')
+							 id_election.('estrangeira')
+							 nome
+
+table user -> id.('primária')
+					
+table votes -> id_candidate.('estrangeira')
